@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: "Lato", sans-serif;
+}
+
+.timeline-background {
+}
+
+.timeline-background ul  {
+	list-style: none;
+	padding: 0;
+	margin: 60px 0;
+	display: grid;
+	grid-template-columns: repeat(3, 220px);
+	justify-content: center;
+    position: relative;
+}
+
+
+.timeline-background ul:before, .timeline-background:before {
+    content: '';
+    background: rgb(17 24 39 / var(--tw-bg-opacity));
+    width: 20px;
+    height: 50px;
+    left: 50%;
+    top: -30px;
+    position: absolute;
+    z-index: 2;
+}
+.timeline-background ul:after, .timeline-background:after {
+    content: '';
+    position: absolute;
+    left:50%;
+    top:-30px;
+    width: 20px;
+    height: 50px;
+    z-index: 3;
+    background: #1a263e;
+    border-radius: 65px 65px 0 65px;
+}
+
+.timeline-background:before {
+	bottom: -30px;
+	top: auto;
+}
+.timeline-background ul:after {
+	bottom: -30px;
+	top: auto;
+	border-radius: 0 65px 65px 65px;
+}
+.timeline-background li {
+	grid-column: span 2;
+	text-align: center;
+	border-radius: 65px 65px 0 65px;
+	color: #fff;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 1.5em;
+	position: relative;
+	padding: 20px 30px;
+	border-radius: 65px;
+	border: 20px solid #0000;
+	background: linear-gradient(#273550 0 0) content-box,
+		linear-gradient(var(--c, #101827) 0 0) padding-box,
+		linear-gradient(var(--d, 90deg), #0000 75%, #1a263e 0) border-box;
+}
+.timeline-background li:nth-child(even) {
+	grid-column-end: -1;
+	--d: -90deg;
+	--c: #101827;
+}
+.timeline-background li:not(:last-child) {
+	margin-bottom: -20px;
+}
+.timeline-background li:before,
+li:after {
+	content: "";
+	display: block;
+	height: 0.6em;
+}
+
+.timeline-background time {
+	position: absolute;
+	font-size: 0.85em;
+	left: calc(100% + 50px);
+	top: 50%;
+	transform: translateY(-50%);
+	white-space: nowrap;
+}
+.timeline-background li:nth-child(even) time {
+	left: auto;
+	color: #fff;
+	right: calc(100% + 50px);
+}
+.timeline-background time:before {
+	content: "";
+	position: absolute;
+	height: 10px;
+	top: calc(50% - 5px);
+	right: calc(100% + 5px);
+	width: 65px;
+	background: repeating-linear-gradient(-90deg, #fcd000 0 5px, #0000 0 10px) 50%/100%
+		2px no-repeat;
+}
+.timeline-background li:nth-child(even) time:before {
+	right: auto;
+	left: calc(100% + 5px);
+	background: repeating-linear-gradient(90deg, #009cda 0 5px, #0000 0 10px) 50%/100%
+		2px no-repeat;
+}
+
+.timeline-background p {
+	padding: 10px;
+}
+
+@media all and (max-width: 760px) {
+	.timeline-background ul {
+		grid-template-columns: repeat(3, 39vw);
+	}
+	.timeline-background time {
+		width: 22vw;
+		white-space: initial;
+		font-size: 14px;
+	}
+	.timeline-background time span {
+		width: 100%;
+		display: inline-block;
+	}
+	.timeline-background time .dash {
+		display:none;
+	}
+}

@@ -1,0 +1,18 @@
+{
+  "name": "new-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "watch:tailwind": "tailwindcss -i ./src/styles.css -o ./src/output.css --watch",
+    "watch:server": "npx http-server ./src -p 8080 -o",
+    "dev": "npm-run-all -p watch:*",
+    "build": "cp ./src/index.html ./public && tailwindcss -i ./src/styles.css -o ./public/output.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.4.1"
+  }
+}
